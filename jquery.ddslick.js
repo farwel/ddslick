@@ -1,4 +1,4 @@
-﻿//Title: Custom DropDown plugin by PC
+//Title: Custom DropDown plugin by PC
 //Documentation: http://designwithpc.com/Plugins/ddslick
 //Author: PC 
 //Website: http://designwithpc.com
@@ -32,7 +32,8 @@
         showSelectedHTML: true,
         clickOffToClose: true,
 		embedCSS: true,
-        onSelected: function () { }
+        onSelected: function () { },
+        onInit: false
     },
 
     ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
@@ -170,6 +171,11 @@
                     $('body').on('click', function () {
                         $('.dd-click-off-close').slideUp(50).siblings('.dd-select').find('.dd-pointer').removeClass('dd-pointer-up');
                     });
+                }
+
+                // Callback
+                if (typeof options.onInit == 'function'){
+                	options.onInit(obj);
                 }
             }
         });
