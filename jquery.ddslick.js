@@ -272,7 +272,7 @@
         else ddSelected.html(selectedData.text);
 
         //Updating selected option value
-        ddSelectedValue.val(selectedData.value);
+        ddSelectedValue.val(selectedData.value).change();
 
         //BONUS! Update the original element attribute with the new selection
         pluginData.original.val(selectedData.value);
